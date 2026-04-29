@@ -78,12 +78,9 @@
 	H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-	H.change_stat("strength", 1)
-	H.change_stat("constitution", -1)
-	H.change_stat("intelligence", -1)
-	H.change_stat("endurance", 0)
-	H.change_stat("perception", 3)
-	H.change_stat("speed", 5)
+	H.change_stat("constitution", -2) //mf if you get +3 speed and a shotgun that has 3 more rounds than the risvo veterano shotgun, you're GONNA be weaker compared to the veterano. It's called balance.
+	H.change_stat("perception", 2) //on wallahi bro you are NOT getting 3 perception with a SHOTGUN, use your flares, you're NOT a kaspafisto yo
+	H.change_stat("speed", 3) // holy shit??? Put 3 instead of 5 cause WHAT THE FUCK IS THAT
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SLEUTH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_WOODWALKER, TRAIT_GENERIC)
