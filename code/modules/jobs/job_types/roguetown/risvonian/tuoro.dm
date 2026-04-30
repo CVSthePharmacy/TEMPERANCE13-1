@@ -72,7 +72,7 @@
 	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/weaponsmithing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
-	H.change_stat("constitution", 3) //shield breaks? Can still tank 1 more round, as this adds +30 hp to limbs
+	H.change_stat("constitution", 1)
 	H.change_stat("endurance", 1)
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 2)

@@ -62,8 +62,7 @@
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/rifles, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 4, TRUE)
-	H.change_stat("constitution", 1)
-	H.change_stat("endurance", 1)
+	H.change_stat("constitution", 2)
+	H.change_stat("endurance", 2)
 	H.change_stat("perception", 2)
-	H.change_stat("speed", 1)
-// HELLLLLLOOOOO this is basically an off-duty armsman WHY do they have better stats than one? We may NEVER know, well, until today. Hello armsman stats.
+	H.change_stat("speed", 2)

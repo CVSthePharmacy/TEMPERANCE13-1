@@ -77,7 +77,7 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/risaimweak)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/rischargeweak)
 	H.change_stat("strength", 1) // roid rage mfs on them 24/7 percs
-	H.change_stat("constitution", 2) // 2 round PUMP shotgun, bro got the single action DB, at least let them have some CON to get in close.
+	H.change_stat("constitution", 1)
 	H.change_stat("endurance", 1)
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 2)

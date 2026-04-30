@@ -78,7 +78,8 @@
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
 	H.change_stat("strength", -2)
-	H.change_stat("constitution", -2) //these guys are priests but they aren't gods, low con comes with low endurance. Stick around your team to avoid shots.
+	H.change_stat("constitution", -2) 
+	H.change_stat("endurance", 2)
 	H.change_stat("perception", 2)
 	H.change_stat("intelligence", 4)
 	H.change_stat("speed", -1)
