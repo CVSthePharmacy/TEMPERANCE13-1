@@ -348,5 +348,5 @@
 	load_sound = 'sound/combat/ranged/rifleload.ogg'
 	recoil = 0.15
 	semi_auto = TRUE
-	burst = 2
+	burst = 3
 	sellprice = 240
