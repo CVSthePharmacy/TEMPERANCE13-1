@@ -220,7 +220,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		log_seen(src, null, hearers, (log_seen_msg ? log_seen_msg : message), log_seen)
 
 /**
- * Show a message to all mobs in a vertical plane around the source atom. 
+ * Show a message to all mobs in a vertical plane around the source atom.
  * Only use this for cases where the action being done is important enough to ignore z level / LOS.
  * vars:
  * * message is the message output. Keep in mind that its end will be appended with "Far Above / Above / Below / Far Below" & "North / East / West / South" etc
@@ -245,7 +245,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(!is_in_zweb(src.z,M.z))
 			continue
 		listening |= M
-	
+
 	for(var/mob/living/L in listening)
 		var/strz
 		var/strdir
@@ -467,26 +467,52 @@ GLOBAL_VAR_INIT(mobids, 1)
 		to_chat(src, span_warning("Something is there but I can't see it!"))
 		return
 
-	if(isliving(src))
-		var/message = "[src] looks at"
+	if(isliving(src) && src.m_intent != MOVE_INTENT_SNEAK && src.stat != DEAD)
 		var/target = "\the [A]"
+		var/message = "[src] looks at"
 		if(!isturf(A))
 			if(A == src)
 				message = "[src] looks over"
 				target = "themselves"
-			else if(A.loc == src)
+			if(A.loc == src)
 				target = "[src.p_their()] [A.name]"
-			else if(A.loc.loc == src)
+			if(A.loc.loc == src)
 				message = "[src] looks into"
 				target = "[src.p_their()] [A.loc.name]"
-			else if(isliving(A) && src.cmode)
+			if(isliving(A))
 				var/mob/living/T = A
-				if(!iscarbon(T))
-					target = "\the [T.name]'s [T.simple_limb_hit(zone_selected)]"
-				if(iscarbon(T) && T != src)
-					target = "[T]'s [parse_zone(zone_selected)]"
-			if(m_intent != MOVE_INTENT_SNEAK)
-				visible_message(span_emote("[message] [target]."))
+				var/hitzone = T.simple_limb_hit(zone_selected)
+				var/behind = FALSE
+				var/grabbing = FALSE
+				var/uncovered = get_location_accessible(T, zone_selected)
+				var/penised = FALSE
+				var/pussied = FALSE
+				var/strcheck = FALSE
+				if((src != T && src.dir == T.dir)  || (src == T && fixedeye))
+					behind = TRUE
+				if(ishuman(src))
+					var/obj/item/grabbing/G = get_active_held_item()
+					if(istype(G))
+						if(G.grabbed == T)
+							if(G.sublimb_grabbed == zone_selected)
+								grabbing = TRUE
+				if(!ishuman(T) && hitzone)
+					target = "\the [T.name]'s [hitzone]"
+				else if(ishuman(T))
+					var/mob/living/carbon/human/target_human = T
+					if(target_human.getorganslot(ORGAN_SLOT_PENIS))
+						penised = TRUE
+					if(target_human.getorganslot(ORGAN_SLOT_VAGINA))
+						pussied = TRUE
+					if(T.STASTR >= 12)
+						strcheck = TRUE
+					if(T == src)
+						var/parsed_zone = parse_zone_fancy(zone_selected, cmode, cmode, Adjacent(T), behind, T.resting, grabbing, fixedeye, uncovered, penised, pussied, strcheck, TRUE)
+						if(parsed_zone)
+							target = "[src.p_their()] [parsed_zone]"
+					else
+						target = "[T]'s [parse_zone_fancy(zone_selected, cmode, T.cmode, Adjacent(T), behind, T.resting, grabbing, fixedeye, uncovered, penised, pussied, strcheck)]"
+			visible_message(span_emote("[message] [target]."))
 
 	var/list/result = A.examine(src)
 	if(result)
@@ -630,6 +656,16 @@ GLOBAL_VAR_INIT(mobids, 1)
 		mind.store_memory(msg)
 //	else
 //		to_chat(src, "You don't have a mind datum for some reason, so you can't add a note to it.")
+
+/mob/verb/do_rp_prompt()
+	set name = "Lore Primer"
+	set category = "Memory"
+	var/list/dat = list()
+	dat += GLOB.roleplay_readme
+	if(dat)
+		var/datum/browser/popup = new(src, "Primer", "TEMPERANCE", 460, 550)
+		popup.set_content(dat.Join())
+		popup.open()
 
 /**
  * Allows you to respawn, abandoning your current mob

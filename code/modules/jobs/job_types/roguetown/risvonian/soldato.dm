@@ -12,7 +12,7 @@
 	tutorial = "You are the backbone of the Risvon Dictate. You are typically a volunteer, or a conscript. \
 				Your main purpose is follow the orders of your superiors. They are your Oficiros, and your Commandant. \
 				For most of your life, you've been filled with a firm belief that the strong must rule. \
-				You are also a firm believer of the denial of one's desires, in favor for unity and a greater good." 
+				You are also a firm believer of the denial of one's desires, in favor for unity and a greater good."
 
 	outfit = /datum/outfit/job/roguetown/soldato
 	display_order = JDO_SOLDATO
@@ -43,21 +43,22 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/ziggurate
 	cloak = /obj/item/clothing/cloak/templar/malumite
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
-	head = /obj/item/clothing/head/roguetown/helmet/kettle/iron
+	head = /obj/item/clothing/head/roguetown/helmet/kettle/iron/soldato
 	mask = /obj/item/clothing/mask/rogue/gasmask/risvonmask
 	belt = /obj/item/storage/belt/rogue/leather/black/soldier
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	beltr = /obj/item/storage/belt/rogue/pouch/ammobag/rifleclip
+	beltr = /obj/item/storage/belt/rogue/pouch/ammobag/pistol
 	wrists = /obj/item/scomstone
 	gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 	id = /obj/item/roguekey/risvon
-	backl = /obj/item/gun/ballistic/rifle/repeater/springfield
+	backl = /obj/item/gun/ballistic/rifle/repeater/pistol
 	backr = /obj/item/storage/backpack/rogue/backpack/risvon
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch/coins/poor,
 		/obj/item/grenade/gas/smoke = 1,
 		/obj/item/rogueweapon/stoneaxe/woodcut/risvon,
 		/obj/item/rope,
+		/obj/item/gun/ballistic/rifle/repeater/pistol,
 	)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
@@ -78,5 +79,5 @@
 	H.change_stat("endurance", 1)
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 2)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LONGSTRIDER, TRAIT_GENERIC)

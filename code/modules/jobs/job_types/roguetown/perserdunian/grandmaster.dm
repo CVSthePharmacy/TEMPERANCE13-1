@@ -47,9 +47,11 @@
 	belt = /obj/item/storage/belt/rogue/leather/black/soldier
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/gun/ballistic/revolver/grandmaster
-	wrists = /obj/item/scomstone/garrison
+	wrists = /obj/item/scomstone/perlead
 	gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 	cloak = /obj/item/clothing/cloak/perserduntabard
+	l_hand = /obj/item/rogueweapon/sword/rapier/grandmaster
+	r_hand = /obj/item/rogueweapon/scabbard/sheath/grandmaster
 	id = /obj/item/roguekey/perserdun
 	backr = /obj/item/storage/backpack/rogue/backpack/perserdun
 	backpack_contents = list(
@@ -68,6 +70,10 @@
 	H.adjust_skillrank(/datum/skill/combat/revolvers, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
+	if(H.mind)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/holdingweak)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/aimweak)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/chargeweak)
 	H.change_stat("intelligence", 3)
 	H.change_stat("constitution", 1)
 	H.change_stat("endurance", 1)

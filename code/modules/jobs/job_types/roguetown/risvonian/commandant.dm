@@ -49,7 +49,7 @@
 	belt = /obj/item/storage/belt/rogue/leather/black/soldier
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/storage/belt/rogue/pouch/ammobag
-	wrists = /obj/item/scomstone
+	wrists = /obj/item/scomstone/rislead
 	gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 	backl = /obj/item/gun/ballistic/rifle/repeater/commandant
 	backr = /obj/item/storage/backpack/rogue/backpack/risvon
@@ -58,7 +58,7 @@
 		/obj/item/ammo_box/clip/pistol = 6,
 		/obj/item/storage/belt/rogue/pouch/coins/rich,
 		/obj/item/bomb/dynamite = 2,
-		/obj/item/rogueweapon/stoneaxe/woodcut/risvon,
+		/obj/item/rogueweapon/stoneaxe/battle/commandant,
 	)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
@@ -75,12 +75,16 @@
 	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/weaponsmithing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
+	if(H.mind)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/risholdingweak)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/risaimweak)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/rischargeweak)
 	H.change_stat("intelligence", 2)
 	H.change_stat("constitution", 1)
 	H.change_stat("endurance", 1)
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 2)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 
 

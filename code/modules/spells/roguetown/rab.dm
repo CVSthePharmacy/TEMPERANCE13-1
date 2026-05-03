@@ -10,7 +10,7 @@
 
 /obj/effect/proc_holder/spell/invoked/blood_heal
 	name = "Blood Congeal"
-	desc = "The simplest of blood magicks. Tap into the coagulative properties of blood to seal deep wounds and staunch bleeding. Capable of healing fractures by rapidly congealing blood into a rigid substance.<br>Standing near puddles of blood will improve the flow."
+	desc = "The simplest of blood magicks. Tap into the coagulative properties of blood to seal deep wounds and staunch bleeding. <br>Standing near puddles of blood will improve flow."
 	overlay_state = "lesserheal"
 	releasedrain = 10
 	chargedrain = 0
@@ -18,11 +18,11 @@
 	range = 4
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
-	sound = 'sound/magic/heal.ogg' // needs a custom one
+	sound = 'sound/magic/blood_congeal.ogg'
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/blood
 	antimagic_allowed = TRUE
-	recharge_time = 10 SECONDS
+	recharge_time = 40 SECONDS
 
 /obj/effect/proc_holder/spell/invoked/blood_heal/cast(list/targets, mob/living/user)
 	. = ..()
@@ -45,10 +45,10 @@
 			conditional_buff = TRUE
 			situational_bonus = min(situational_bonus, 5)
 
-		var/healing = 2.5
+		var/bloodhealing = 2.5
 		if (conditional_buff)
 			to_chat(user, "Manipulating blood is easier in these conditions!")
-			healing += situational_bonus
+			bloodhealing += situational_bonus
 
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
@@ -61,7 +61,7 @@
 			else
 				no_embeds = TRUE
 			if(no_embeds)
-				target.apply_status_effect(/datum/status_effect/buff/healing, healing)
+				target.apply_status_effect(/datum/status_effect/buff/bloodhealing, bloodhealing)
 			else
 				message_out = span_warning("The wounds tear and rip around the embedded objects!")
 				message_self = span_warning("Agonizing pain shoots through your body as blood tries to sew around the embedded objects!")
@@ -69,7 +69,7 @@
 				playsound(target, 'sound/combat/dismemberment/dismem (2).ogg', 100)
 				H.emote("agony")
 		else
-			target.apply_status_effect(/datum/status_effect/buff/healing, healing)
+			target.apply_status_effect(/datum/status_effect/buff/bloodhealing, bloodhealing)
 		target.visible_message(message_out, message_self)
 		return TRUE
 	revert_cast()
@@ -77,7 +77,7 @@
 
 /obj/effect/proc_holder/spell/invoked/blood_link
 	name = "Blood Transfer"
-	desc = "Transfers the blood of yourself to a target. Ratio of transfer scales with blood skill."
+	desc = "Transfers the blood of yourself to a target. Ratio of transfer scales with blood skill. Can be used to refuel Piercing Blood."
 	overlay_state = "blood_link"
 	releasedrain = 30
 	chargedrain = 0
@@ -90,7 +90,7 @@
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/blood
 	antimagic_allowed = FALSE
-	recharge_time = 45 SECONDS
+	recharge_time = 5 SECONDS
 	var/blood_price = 5
 	var/blood_vol_restore = 7.5 //30 every 2 seconds.
 	var/vol_per_skill = 1	//54 with legendary
@@ -168,7 +168,7 @@
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	spell_tier = 2 // Doesn't matter for the most part
-	invocation = "PIERCING BLOOD!"
+	invocation = "PIERCE!"
 	invocation_type = "shout"
 	glow_color = GLOW_COLOR_VAMPIRIC
 	glow_intensity = GLOW_INTENSITY_MEDIUM
@@ -197,7 +197,7 @@
 	damage = 70
 	armor_penetration = 50
 	damage_type = BRUTE
-	woundclass = BCLASS_PIERCE
+	woundclass = BCLASS_CUT
 	nodamage = FALSE
 	speed = 0.3
 	flag = "magic"

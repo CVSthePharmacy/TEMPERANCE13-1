@@ -34,13 +34,13 @@
 	if(!proximity)
 		return
 	user.say(catchphrase, forced = "spell")
-	playsound(get_turf(user), on_use_sound,50,TRUE)
 	charges--
 	if(charges <= 0)
 		qdel(src)
 
 /obj/item/needle/touch_attack/Destroy()
 	if(attached_spell)
+		playsound(get_turf(src), on_use_sound,50,TRUE)
 		attached_spell.on_hand_destroy(src)
 	return ..()
 
@@ -70,6 +70,7 @@
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'	
 	icon_state = "needle"
 	catchphrase = null
+	charges = 3
 	on_use_sound = 'sound/magic/blood_needle_use.ogg'
 	w_class = WEIGHT_CLASS_TINY
 	infinite = TRUE

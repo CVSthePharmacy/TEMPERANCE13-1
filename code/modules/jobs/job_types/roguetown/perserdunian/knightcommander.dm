@@ -5,13 +5,13 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	allowed_races = RACES_TEMPERANCE
+	allowed_races = RACES_CONSCRIPT
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 
 	tutorial = "You're a low-ranking officer, gifted with your own squad of Armsmen. \
 				Your main goal is to keep your Armsmen together and alive, while also killing the enemy. \
-				Typically, Commanders are promoted after they graduate a certain type of training. Some are promoted Armsmen." 
+				Typically, Commanders are promoted after they graduate a certain type of training. Some are promoted Armsmen."
 
 	outfit = /datum/outfit/job/roguetown/knightcommander
 	display_order = JDO_KNIGHTCOMMANDER
@@ -38,7 +38,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/hauberk
 	cloak = /obj/item/clothing/cloak/perserduntabard
 	pants = /obj/item/clothing/under/roguetown/trou/artipants
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/iron
@@ -56,14 +56,14 @@
 		/obj/item/storage/belt/rogue/pouch/coins/mid,
 		/obj/item/grenade/gas/poison,
 		/obj/item/grenade/gas/smoke,
-		/obj/item/rogueweapon/sword/iron/short,
+		/obj/item/rogueweapon/sword/short/messer/knightcommander,
 		/obj/item/bomb/dynamite = 2,
 	)
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
@@ -71,9 +71,13 @@
 	H.adjust_skillrank(/datum/skill/combat/rifles, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
+	if(H.mind)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/holdingweak)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/aimweak)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/chargeweak)
 	H.change_stat("strength", 1)
 	H.change_stat("constitution", 2)
 	H.change_stat("endurance", 2)
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 1)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)

@@ -8,7 +8,7 @@
 	icon_state = "handcuff"
 	flags_1 = CONDUCT_1
 	throwforce = 0
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	slowdown = 7
 	breakouttime = 30 SECONDS
 
@@ -17,7 +17,7 @@
 	name = "mantrap"
 	gender = NEUTER
 	throw_speed = 1
-	throw_range = 1
+	throw_range = 3
 	icon_state = "beartrap"
 	desc = "A crude and rusty spring trap, used to snare interlopers, or prey on a hunt. Looks almost like falling apart."
 	var/rusty = TRUE // Is it an old trap? Will most likely be destroyed if not handled right
@@ -26,7 +26,7 @@
 	var/used_time = 12 SECONDS // How many seconds it takes to disarm the trap
 	max_integrity = 100
 
-	grid_width = 64
+	grid_width = 32
 	grid_height = 64
 
 /obj/item/restraints/legcuffs/beartrap/attack_hand(mob/user)
@@ -93,12 +93,12 @@
 	..()
 
 /obj/item/restraints/legcuffs/beartrap/armed
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_SMALL
 	armed = TRUE
 	anchored = TRUE // Pre mapped traps (bad mapping btw, don't) start anchored
 
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_SMALL
 	armed = TRUE
 	alpha = 80
 
@@ -123,7 +123,7 @@
 			if(prob(50))
 				armed = !armed
 				if(armed)
-					w_class = WEIGHT_CLASS_BULKY
+					w_class = WEIGHT_CLASS_SMALL
 				else
 					w_class = initial(w_class)
 				update_icon()

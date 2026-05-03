@@ -92,7 +92,7 @@
 
 /obj/item/gun/ballistic/revolver/grandmaster
 	name = "'Garland' Service Revolver"
-	desc = "A very, very expensive revolver used by the Grandmaster. It's got a very nice finish, and looks very well made. It's also got a very high price tag, so you probably shouldn't be holding it."
+	desc = "A very, very expensive revolver used by the Grandmaster. It's got a very nice finish, and looks very well made. It's also got a very high price tag, so you probably shouldn't be holding it. Chambered in .44."
 	w_class = WEIGHT_CLASS_SMALL
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/revolver
 	force = 10
@@ -102,13 +102,15 @@
 	slowdown = 0.15
 	empty_indicator = TRUE
 	fire_sound = REVOLVERSHOT
+	dry_fire_sound = 'sound/combat/ranged/revolver_prime.ogg'
 	load_sound = REVOLVERINSERT
 	recoil = 0.15
 	experimental_inhand = FALSE
+	sellprice = 220
 
 /obj/item/gun/ballistic/revolver/pace
 	name = "'Pace' Prarie Revolver"
-	desc = "A relatively cheap revolver, similar to the Garland. Doesn't handle as well. Not as accurate, not as well made. Still, it'll put holes in things, and that's what you need, right? Just try to match the tempo"
+	desc = "A relatively cheap revolver, similar to the Garland. Doesn't handle as well. Not as accurate, not as well made. Still, it'll put holes in things, and that's what you need, right? Chambered in .44."
 	w_class = WEIGHT_CLASS_SMALL
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/revolver
 	force = 10
@@ -121,47 +123,52 @@
 	load_sound = REVOLVERINSERT
 	recoil = 0.30
 	experimental_inhand = FALSE
+	sellprice = 30
 
 /obj/item/gun/ballistic/revolver/webley
 	name = "'Kesha' Break Open Revolver"
-	desc = "A classic Kalarian revolver, known for its reliability and it's intuitive break open cylinder, or at least that's what the gunsmith told you."
+	desc = "A classic Kalarian revolver, known for its reliability and it's intuitive break open cylinder, or at least that's what the gunsmith told you. Chambered in .44."
 	w_class = WEIGHT_CLASS_SMALL
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/revolver
 	force = 10
 	spread = 6
 	icon_state = "webley"
 	item_state = "webley"
+	dry_fire_sound = 'sound/combat/ranged/revhammer.ogg'
 	slowdown = 0.15
 	empty_indicator = TRUE
-	fire_sound = REVOLVERSHOT
+	fire_sound = 'sound/combat/ranged/webleyfire.ogg'
 	load_sound = REVOLVERINSERT
 	recoil = 0.30
 	experimental_inhand = FALSE
+	sellprice = 42
 
 /obj/item/gun/ballistic/revolver/snub
 	name = "'Land' Snubnose Revolver"
-	desc = "A compact revolver with a short barrel. Notoriously inaccurate, but easy to conceal. Seems the kind of gun that a bandit would use, but you know, it gets the job done."
+	desc = "A compact revolver with a short barrel. Notoriously inaccurate, but easy to conceal. Seems the kind of gun that a bandit would use, but you know, it gets the job done. Chambered in .380 ACP."
 	w_class = WEIGHT_CLASS_SMALL
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/snubby
 	force = 9 // haha tiny gun bad
 	spread = 8 // with what barrel yo?
 	icon_state = "snubnose"
 	item_state = "snubnose"
+	dry_fire_sound = 'sound/combat/ranged/revhammer.ogg'
 	slowdown = 0.1 // small gun, small slowdown
 	empty_indicator = TRUE
 	fire_sound = REVOLVERSHOT
 	load_sound = REVOLVERINSERT
 	recoil = 0.30
 	experimental_inhand = FALSE
+	sellprice = 24
 
 //dogshit double barrel shotgun code
 
 /obj/item/gun/ballistic/revolver/doublebarrel
 	name = "'Ranger' Double Barrel Shotgun"
-	desc = "A cheap, double barrel shotgun. Usually made by the guy that's holding it."
+	desc = "A cheap, double barrel shotgun. Usually made by the guy that's holding it. Chambered in 12 gauge."
 	w_class = WEIGHT_CLASS_BULKY
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/risvon
-	force = 20
+	force = 30
 	spread = 0.5
 	icon_state = "dshotgun"
 	item_state = "dshotgun"
@@ -172,10 +179,12 @@
 	recoil = 0.30
 	experimental_inhand = FALSE
 	slot_flags = ITEM_SLOT_BACK
+	sellprice = 40
+	longarm = TRUE
 
 /obj/item/gun/ballistic/revolver/sawedoff
 	name = "TIZ 'Persuader' Pocket Shotgun"
-	desc = "A one-shot, sawed off shotgun. This configuration's typically made by outlaws to help with deal negotiation."
+	desc = "A one-shot, sawed off shotgun. This configuration's typically made by outlaws to help with deal negotiation. Chambered in 12 gauge."
 	w_class = WEIGHT_CLASS_SMALL
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/sawedoff
 	force = 20
@@ -190,10 +199,12 @@
 	recoil = 0.30
 	experimental_inhand = FALSE
 	slot_flags = ITEM_SLOT_HIP
+	sellprice = 20
+	longarm = FALSE //it's a pocket gun with one round, it should be okay
 
 /obj/item/gun/ballistic/revolver/judge
 	name = "TYK 'Judge' Revolving Rifle"
-	desc = "A rifle-revolver hybrid. Typically used by national guardsmen or game hunters."
+	desc = "A rifle-revolver hybrid. Typically used by national guardsmen or game hunters. Chambered in .45 Long Colt."
 	w_class = WEIGHT_CLASS_SMALL
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/judge
 	force = 30 //fat stock
@@ -201,17 +212,21 @@
 	icon = 'icons/roguetown/weapons/64guns.dmi'
 	icon_state = "revolvingrifle"
 	item_state = "revolvingrifle"
+	dry_fire_sound = 'sound/combat/ranged/revolver_prime.ogg'
 	slowdown = 0.2 //slower
 	empty_indicator = TRUE
 	fire_sound = REVOLVERSHOT
 	load_sound = REVOLVERINSERT
+	dry_fire_sound = 'sound/combat/ranged/revolver_prime.ogg'
 	recoil = 0.1
 	experimental_inhand = FALSE
 	slot_flags = ITEM_SLOT_BACK
+	sellprice = 64
+	longarm = TRUE
 
 /obj/item/gun/ballistic/revolver/mercy
 	name = "LC 'Mercy' Revolver"
-	desc = "A low-caliber revolver, at least it has 8 rounds in the chamber over six. Probably not gonna kill anything, unless you put it up against someone's head."
+	desc = "A low-caliber revolver, at least it has 8 rounds in the chamber over six. Probably not gonna kill anything, unless you put it up against someone's head. Chambered in .22 LR."
 	w_class = WEIGHT_CLASS_SMALL
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/mercy
 	force = 10
@@ -224,3 +239,4 @@
 	load_sound = REVOLVERINSERT
 	recoil = 0.10 //22lr is a pussy caliber, so less recoil
 	experimental_inhand = FALSE
+	sellprice = 14

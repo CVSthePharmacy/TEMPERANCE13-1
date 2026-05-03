@@ -47,7 +47,7 @@
 
 /datum/supply_pack/rogue/firearms/artyluger
 	name = "KR 'Preacher' Stocked Pistol"
-	cost = 180
+	cost = 130
 	contains = list(
 					/obj/item/gun/ballistic/rifle/repeater/artyluger,
 				)
@@ -106,4 +106,18 @@
 	cost = 210
 	contains = list(
 					/obj/item/gun/ballistic/rifle/repeater/risvocarb,
+				)
+
+/datum/supply_pack/rogue/firearms/lebel
+	name = "SOG 'Regal' Bolt Action Rifle"
+	cost = 80
+	contains = list(
+					/obj/item/gun/ballistic/rifle/repeater/lebel,
+				)
+
+/datum/supply_pack/rogue/firearms/leverleg
+	name = "'Mare' Baye VII Sawn off Lever Action Rifle"
+	cost = 80
+	contains = list(
+					/obj/item/gun/ballistic/rifle/repeater/leverleg,
 				)

@@ -1771,7 +1771,6 @@
 /obj/structure/bars/grille,
 /obj/effect/spawner/lootdrop/hightierguns,
 /obj/effect/spawner/lootdrop/hightierguns,
-/obj/effect/spawner/lootdrop/hightierguns,
 /obj/structure/closet/crate/roguecloset/metal/metal2{
 	plane = -5
 	},
@@ -2490,7 +2489,7 @@
 /area/rogue/indoors/shelter/town/sargoth)
 "ue" = (
 /obj/structure/table/vtable,
-/obj/structure/roguemachine/musicbox/tavern{
+/obj/item/roguemachine/musicbox/tavern{
 	pixel_y = 6
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -2921,7 +2920,7 @@
 /area/rogue/under/cave/warmachine)
 "ye" = (
 /obj/structure/table/wood/long_table/right,
-/obj/structure/roguemachine/musicbox/tavern{
+/obj/item/roguemachine/musicbox/tavern{
 	pixel_y = 6
 	},
 /turf/open/floor/rogue/risvon,
@@ -4268,6 +4267,14 @@
 	},
 /turf/open/floor/rogue/warmetal,
 /area/rogue/under/cave/warmachine)
+"IB" = (
+/obj/structure/fluff/railing/sandbag{
+	dir = 1;
+	pixel_y = 11
+	},
+/obj/machinery/gear_painter_nocolorwheel/risvon,
+/turf/open/floor/rogue/risvon,
+/area/rogue/indoors/risvonbase)
 "IE" = (
 /obj/structure/mineral_door/wood{
 	lockid = "risvontag"
@@ -5972,7 +5979,7 @@
 /obj/item/gun/ballistic/rifle/repeater/springfield{
 	pixel_y = 8
 	},
-/obj/item/gun/ballistic/rifle/repeater/springfield{
+/obj/item/gun/ballistic/rifle/repeater/pistol{
 	pixel_y = -8
 	},
 /turf/open/floor/rogue/risvon,
@@ -11409,7 +11416,7 @@ rc
 rc
 rc
 Tx
-xC
+IB
 VR
 rH
 NG
@@ -12839,7 +12846,7 @@ rc
 rc
 My
 Tx
-xC
+IB
 ej
 HT
 ej

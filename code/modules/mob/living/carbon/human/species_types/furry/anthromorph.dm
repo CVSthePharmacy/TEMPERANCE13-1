@@ -2,15 +2,15 @@
 	race = /datum/species/anthromorph
 
 /datum/species/anthromorph
-	name = "Black Beast"
+	name = "Xiaoren"
 	id = "anthromorph"
-	desc = "<b>Black Beast</b><br>\
-	The progenitor of Beastmen, Black Beasts were once human beings. They were around before the MACHINES appeared. \
+	desc = "<b>Xiaoren</b><br>\
+	The progenitor of the Liumang, Xiaoren were once human beings. They were around before the MACHINES appeared. \
 	Captured and forced into strange alchemical experiments by the Jade Empire of Xiyuan, \
 	they've been sold off by the Empire to act purely as slave-soldiers. Both Risvon and Perserdun actively use them. \
 	They're usually identified as second-class citizens. As a result, they rarely receive proper education. \
 	Noticeably, they tend to be subservient to authority figures. Most chalk this up to the trauma inflicted by the Xiyuanese. \
-	All Black Beasts share the characteristics of the Twelve Great Animals - a zodiac table that contains things such as tigers, rabbits, dogs, and so on. \
+	All Xiaoren share the characteristics of the Twelve Great Animals - a zodiac table that contains things such as tigers, rabbits, dogs, and so on. \
 	(+1 Constitution, +1 Strength, -2 Intelligence)"
 	default_color = "444"
 	species_traits = list(
@@ -23,6 +23,8 @@
 	attack_verb = "slash"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	possible_ages = ALL_AGES_LIST
+	disliked_food = NONE
+	liked_food = NONE
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mta.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fma.dmi'
 	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
@@ -117,6 +119,7 @@
 		/datum/body_marking/harlequinreversed,
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
+		/datum/body_marking/facepaint
 	)
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,

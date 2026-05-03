@@ -118,6 +118,13 @@
 	user.update_inv_cloak()
 	user.update_inv_armor()
 
+/obj/item/clothing/cloak/perserduntabard/grandknight
+	name = "imperial sash"
+	desc = "For the Grand Knight."
+	color = null
+	icon_state = "grandknight"
+	item_state = "grandknight"
+
 /obj/item/clothing/cloak/psydontabard/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
@@ -1183,7 +1190,7 @@
 
 /obj/item/clothing/cloak/half/shadowcloak
 	name = "stalker cloak"
-	desc = "A heavy leather cloak held together by a gilded pin, depicting the Grand Duke's house. The sign of a faithful servant."
+	desc = "A heavy leather cloak held together by a gilded pin, depicting a dripping needle in front of a silver tree. The sign of a faithful Jaeger."
 	icon_state = "shadowcloak"
 	color = null
 	allowed_race = NON_DWARVEN_RACE_TYPES
@@ -1816,3 +1823,26 @@
 	boobed = TRUE
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
 	flags_inv = HIDECROTCH|HIDEBOOB
+
+/obj/item/clothing/cloak/blackguard
+	name = "blackguard trenchcoat"
+	desc = "A tattered black trenchcoat, worn by the Blackguard of the Perserdunian forces. It is said that the Blackguard are the only ones who can get away with wearing such a garment in polite company."
+	color = null
+	icon_state = "blackguard"
+	item_state = "blackguard"
+	body_parts_covered = CHEST|GROIN|VITALS
+	boobed = TRUE
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	flags_inv = HIDECROTCH|HIDEBOOB
+
+/obj/item/clothing/cloak/blackguard/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
+
+/obj/item/clothing/cloak/blackguard/dropped(mob/living/carbon/human/user)
+	..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		var/list/things = STR.contents()
+		for(var/obj/item/I in things)
+			STR.remove_from_storage(I, get_turf(src))

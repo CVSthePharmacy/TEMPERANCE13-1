@@ -166,9 +166,9 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 				if(length(client.prefs.flavortext) < MINIMUM_FLAVOR_TEXT)
 					to_chat(src, span_boldwarning("You need a minimum of [MINIMUM_FLAVOR_TEXT] characters in your flavor text in order to play."))
 					return
-				if(length(client.prefs.ooc_notes) < MINIMUM_OOC_NOTES)
-					to_chat(src, span_boldwarning("You need at least a few words in your OOC notes in order to play."))
-					return
+//				if(length(client.prefs.ooc_notes) < MINIMUM_OOC_NOTES)
+//					to_chat(src, span_boldwarning("You need at least a few words in your OOC notes in order to play."))
+//					return
 
 			if(ready != tready)
 				ready = tready
@@ -258,9 +258,9 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 			to_chat(usr, span_boldwarning("You need a minimum of [MINIMUM_FLAVOR_TEXT] characters in your flavor text in order to play."))
 			return
 
-		if(length(client.prefs.ooc_notes) < MINIMUM_OOC_NOTES)
-			to_chat(src, span_boldwarning("You need at least a few words in your OOC notes in order to play."))
-			return
+//		if(length(client.prefs.ooc_notes) < MINIMUM_OOC_NOTES)
+//			to_chat(src, span_boldwarning("You need at least a few words in your OOC notes in order to play."))
+//			return
 
 		AttemptLateSpawn(href_list["SelectedJob"])
 		return
@@ -282,18 +282,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 	if(href_list["votepollref"])
 		var/datum/poll_question/poll = locate(href_list["votepollref"]) in GLOB.polls
 		vote_on_poll_handler(poll, href_list)
-
-
-
-/mob/dead/new_player/verb/do_rp_prompt()
-	set name = "Lore Primer"
-	set category = "Memory"
-	var/list/dat = list()
-	dat += GLOB.roleplay_readme
-	if(dat)
-		var/datum/browser/popup = new(src, "Primer", "TEMPERANCE", 460, 550)
-		popup.set_content(dat.Join())
-		popup.open()
 
 //When you cop out of the round (NB: this HAS A SLEEP FOR PLAYER INPUT IN IT)
 /mob/dead/new_player/proc/make_me_an_observer()

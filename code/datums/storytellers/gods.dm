@@ -13,11 +13,15 @@
 #define STORYTELLERS_ALL (DIVINE_STORYTELLERS + INHUMEN_STORYTELLERS)
 
 /datum/storyteller/psydon
-	name = "STANDARD"
+	name = "Psydon"
 	desc = "You have been given the right to vote for.. NOTHING! The standard Temperance 13 experience."
 	weight = 6
-	always_votable = TRUE
+	always_votable = FALSE
 	color_theme = "#80ced8"
+
+	//Sets probability of roundstart antag to 0. One would think no character injection would be good enough, but here we are. This is also on other codebases psydon so prob the way to fix it.
+	guarantees_roundstart_roleset = FALSE
+	roundstart_prob = 0 //Sets probability of roundstart antag to 0. One would think no character injection would be good enough, but here we are. This is also on other codebases psydon so prob the way to fix it.
 
 	//Has no influence, your actions will not impact him his spawn rates. Cus he's asleep.
 	//Tl;dr - higher event spawn rates to keep stuff interesting, no god intervention, no antags. (Raids and omens will still happen at normal rate.)
@@ -241,7 +245,6 @@
 
 	influence_factors = list(
 		STATS_KISSES_MADE = list("points" = 7, "capacity" = 70),
-		STATS_PLEASURES = list("points" = 5, "capacity" = 50),	//We nerf this cus not uncommon to see a fair amount of pleasures.
 		STATS_HUGS_MADE = list("points" = 2, "capacity" = 50),
 		STATS_CLINGY_PEOPLE = list("points" = 3, "capacity" = 70),
 	)

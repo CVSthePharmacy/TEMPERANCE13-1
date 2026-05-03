@@ -215,14 +215,15 @@
 #define WARPRIEST (1<<2) // rab worshipper support role, uses blood magic, has a few offensive spells with a few support ones too
 #define KNIGHTCOMMANDER (1<<3) //better armor + sawn down lever-action & a sword
 #define VOLTIGEUR (1<<4) //high speed shotgun flanker, with recon potential to boot
-#define AUXILIARIST	(1<<5) //support role - same w/ servico
-#define ARMSMAN	(1<<6) //standard soldier w/ a rifle
-#define ROOK (1<<7) // terdun machine gunner
-#define AMMOSQUIRE (1<<8) // terdun ammo bearer
-#define CHIRURGEON (1<<9)
-#define PARTISAN (1<<10)
-#define ENVOY (1<<11)
-#define RADIOTROOPER (1<<12)
+#define BLACKGUARD (1<<5) //trench raider - specialized in close combat
+#define AUXILIARIST	(1<<6) //support role - same w/ servico
+#define ARMSMAN	(1<<7) //standard soldier w/ a rifle
+#define ROOK (1<<8) // terdun machine gunner
+#define AMMOSQUIRE (1<<9) // terdun ammo bearer
+#define CHIRURGEON (1<<10)
+#define PARTISAN (1<<11)
+#define ENVOY (1<<12)
+#define RADIOTROOPER (1<<13)
 
 #define RISVON	(1<<13)
 
@@ -277,6 +278,7 @@
 #define JDO_WARPRIEST 1.2
 #define JDO_KNIGHTCOMMANDER 1.3
 #define JDO_VOLTIGEUR 1.4
+#define JDO_BLACKGUARD 1.41
 #define JDO_AUXILIARIST 1.5
 #define JDO_ARMSMAN 1.6
 #define JDO_ROOK 1.7
@@ -319,6 +321,7 @@
 	/datum/job/roguetown/grandknight,\
 	/datum/job/roguetown/knightcommander,\
 	/datum/job/roguetown/voltigeur,\
+	/datum/job/roguetown/blackguard,\
 	/datum/job/roguetown/auxiliar,\
 	/datum/job/roguetown/armsman,\
 	/datum/job/roguetown/chirurgeon,\

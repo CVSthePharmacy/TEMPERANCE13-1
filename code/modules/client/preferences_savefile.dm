@@ -7,7 +7,7 @@
 //	where you would want the updater procs below to run
 
 //	This also works with decimals.
-#define SAVEFILE_VERSION_MAX	32
+#define SAVEFILE_VERSION_MAX	34
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -143,6 +143,19 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 				if(species_name == "Sissean")
 					testing("Updating to Zardman.")
 					species_name = "Zardman"
+	if(current_version < 34) // Update xiaoren races
+		var/species_name
+		S["species"] >> species_name
+		testing("Save version < 34, updating [species_name].")
+		if(species_name)
+			var/newtype = GLOB.species_list[species_name]
+			if(!newtype)
+				if(species_name == "Black Beast")
+					testing("Updating to Xiaoren.")
+					species_name = "Xiaoren"
+				else if(species_name == "Beastmen")
+					testing("Updating to Liumang.")
+					species_name = "Liumang"
 
 		_load_species(S, species_name)		
 
@@ -194,6 +207,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["mastervol"]			>> mastervol
 	S["lastclass"]			>> lastclass
 	S["prefer_old_chat"]	>> prefer_old_chat
+	S["compliance_notifs"]  >> compliance_notifs
 
 
 	S["default_slot"]		>> default_slot
@@ -338,6 +352,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["pda_color"], pda_color)
 	WRITE_FILE(S["key_bindings"], key_bindings)
 	WRITE_FILE(S["prefer_old_chat"], prefer_old_chat)
+	WRITE_FILE(S["compliance_notifs"], compliance_notifs)
 	return TRUE
 
 
@@ -420,6 +435,14 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if (preview_height)
 		preview_height = new preview_height()
 
+/datum/preferences/proc/_load_combat_music(S)
+	var/combat_music_type
+	S["combat_music"] >> combat_music_type
+	if (GLOB.cmode_tracks_by_type[combat_music_type])
+		combat_music = GLOB.cmode_tracks_by_type[combat_music_type]
+	else
+		combat_music = GLOB.cmode_tracks_by_type[default_cmusic_type]
+
 /datum/preferences/proc/_load_appearence(S)
 	S["real_name"]			>> real_name
 	S["gender"]				>> gender
@@ -485,6 +508,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	_load_loadout(S)
 	_load_loadout2(S)
 	_load_loadout3(S)
+
+	_load_combat_music(S)
 
 	if(!S["features["mcolor"]"] || S["features["mcolor"]"] == "#000")
 		WRITE_FILE(S["features["mcolor"]"]	, "#FFF")
@@ -703,6 +728,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["statpack"] , statpack.type)
 	WRITE_FILE(S["virtue"] , virtue.type)
 	WRITE_FILE(S["virtuetwo"], virtuetwo.type)
+	WRITE_FILE(S["combat_music"], combat_music.type)
 	WRITE_FILE(S["body_size"] , features["body_size"])
 	if(loadout)
 		WRITE_FILE(S["loadout"] , loadout.type)

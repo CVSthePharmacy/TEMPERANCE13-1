@@ -137,8 +137,11 @@
 
 	var/ambushable = 0
 
+	/// Tracks whether mob is in surrendering state (right-click combat button)
 	var/surrendering = 0
-	var/compliance = 0 // whether we are choosing to auto-resist grabs and stuff
+
+	/// Tracks whether mob is in compliance mode (middle-click combat button)
+	var/compliance = 0
 
 	var/defprob = 50 //base chance to defend against this mob's attacks, for simple mob combat
 	var/encumbrance = 0
@@ -183,3 +186,6 @@
 	var/voice_pitch = 1
 
 	var/domhand = 0
+
+	var/cmode_music_override = list() // set by prefs or the verb, ignored if empty
+	var/cmode_music_override_name // solely for autoselecting as a spawned-in mob

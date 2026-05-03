@@ -34,6 +34,9 @@
 	chargetime = 0
 	swingdelay = 0
 	item_d_type = "stab"
+	
+/datum/intent/sword/thrust/long
+	penfactor = 30
 
 /datum/intent/sword/thrust/krieg
 	damfactor = 0.9
@@ -243,8 +246,8 @@
 		 It has great cultural significance in the empires of Grenzelhoft and Etrusca, where legendary swordsmen have created and perfected many fighting techniques of todae."
 	force = 25
 	force_wielded = 30
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/peel)
-	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel, /datum/intent/sword/chop)
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/long, /datum/intent/sword/strike, /datum/intent/sword/peel)
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/long, /datum/intent/sword/peel, /datum/intent/sword/chop)
 	alt_intents = list(/datum/intent/effect/daze, /datum/intent/sword/strike, /datum/intent/sword/bash)
 	icon_state = "longsword"
 	icon = 'icons/roguetown/weapons/64.dmi'
@@ -264,7 +267,8 @@
 	associated_skill = /datum/skill/combat/swords
 	throwforce = 15
 	thrown_bclass = BCLASS_CUT
-	dropshrink = 0.75
+	max_blade_int = 280
+	wdefense_wbonus = 4
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/rogueweapon/sword/long/death
@@ -1364,4 +1368,28 @@
 	desc = "A gold-stained with cloud patterns on the groove. One of a kind. It is a symbol of status within the Ruma clan."
 	icon_state = "eastsword3"
 	max_integrity = 180
+	wdefense = 4
+
+/obj/item/rogueweapon/sword/rapier/grandmaster
+	name = "cane blade"
+	desc = "A steel blade with a gold handle, intended to be concealed inside of a cane, bears the visage of a vulture on its pommel."
+	icon = 'icons/roguetown/weapons/32.dmi'
+	icon_state = "caneblade"
+	sheathe_icon = "caneblade"
+	sellprice = 100 //Gold handle
+	grid_width = 32
+	grid_height = 64
+	dropshrink = 0
+	bigboy = FALSE
+	possible_item_intents = list(/datum/intent/sword/thrust/rapier, /datum/intent/sword/cut/rapier)
+	gripped_intents = null
+
+/obj/item/rogueweapon/sword/short/messer/knightcommander
+	name = "imperial messer"
+	desc = "Single-edged export from Yun. Sharp bit faces your target."
+	icon_state = "knightmesser"
+	sheathe_icon = "smesser"
+	force = 25
+	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust, /datum/intent/axe/chop, /datum/intent/sword/peel)
+	minstr = 5
 	wdefense = 4

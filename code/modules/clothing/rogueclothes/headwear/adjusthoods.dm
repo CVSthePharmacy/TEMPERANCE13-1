@@ -199,11 +199,13 @@
 	naledicolor = TRUE
 
 /obj/item/clothing/head/roguetown/roguehood/pontifex
-	name = "pontifex's pashmina"
-	desc = "A slim hood with thin, yet dense fabric. Stretchy and malleable, allowing for full flexibility and mobility. Made with spell-laced fabric to provide some protection against daemons and mortals alike."
+	name = "blackguard's hood"
+	desc = "A slim hood with thin, yet dense fabric. Stretchy and malleable, allowing for full flexibility and mobility."
 	max_integrity = 100
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	armor = ARMOR_HEAD_PSYDON
 	icon_state = "monkhood"
 	item_state = "monkhood"
-	naledicolor = TRUE
+
+/obj/item/clothing/head/roguetown/roguehood/pontifex/black
+	color = "#2e363d"

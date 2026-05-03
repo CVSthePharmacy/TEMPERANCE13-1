@@ -183,10 +183,11 @@ GLOBAL_LIST_INIT(test_positions, list(
 GLOBAL_LIST_INIT(perserdun_positions, list(
 	"Grandmaster",
 	"Grand Knight",
-	"War Priest",
+	"Field Bishop",
 	"Knight Commander",
 	"Voltigeur",
 	"Armsman",
+	"Blackguard",
 	"Rook",
 	"Ammo Squire",
 	"Auxiliarist",

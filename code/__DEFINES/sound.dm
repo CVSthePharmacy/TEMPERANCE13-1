@@ -2,21 +2,20 @@
 #define CHANNEL_LOBBYMUSIC 1024
 #define CHANNEL_ADMIN 1023 //USED FOR MUSIC
 #define CHANNEL_VOX 1022
-#define CHANNEL_JUKEBOX 1021
-#define CHANNEL_JUSTICAR_ARK 1020
-#define CHANNEL_HEARTBEAT 1019 //sound channel for heartbeats
-#define CHANNEL_AMBIENCE 1018
-#define CHANNEL_BUZZ 1017
-#define CHANNEL_BICYCLE 1016
-#define CHANNEL_RAIN 1015
-#define CHANNEL_MUSIC 1014
-#define CHANNEL_CMUSIC 1013
-#define CHANNEL_WEATHER 1012
+#define CHANNEL_JUSTICAR_ARK 1021
+#define CHANNEL_HEARTBEAT 1020 //sound channel for heartbeats
+#define CHANNEL_AMBIENCE 1019
+#define CHANNEL_BUZZ 1018
+#define CHANNEL_BICYCLE 1017
+#define CHANNEL_RAIN 1016
+#define CHANNEL_MUSIC 1015
+#define CHANNEL_CMUSIC 1014
+#define CHANNEL_WEATHER 1013
 
 //THIS SHOULD ALWAYS BE THE LOWEST ONE!
 //KEEP IT UPDATED
 
-#define CHANNEL_HIGHEST_AVAILABLE 1011
+#define CHANNEL_HIGHEST_AVAILABLE 1012
 
 
 #define SOUND_MINIMUM_PRESSURE 10
@@ -190,6 +189,13 @@
 #define SFX_JINGLE_BELLS "jingle_bells"
 #define SFX_WOOD_ARMOR "wood_armor"
 #define SFX_GEAR_STEP "gear_step"
+
+#define SFX_COLLARJINGLE list('sound/items/jinglebell1.ogg',\
+							'sound/items/jinglebell2.ogg',\
+							'sound/items/jinglebell3.ogg',\
+							'sound/items/jinglebell4.ogg',\
+							'sound/items/jinglebell5.ogg',\
+							'sound/items/jinglebell6.ogg')
 
 #define INTERACTION_SOUND_RANGE_MODIFIER 0
 #define EQUIP_SOUND_VOLUME 100

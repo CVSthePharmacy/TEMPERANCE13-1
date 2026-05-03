@@ -102,4 +102,3 @@
 		/obj/item/ammo_box/magazine/luger = 3,
 	)
 	H.adjust_skillrank(/datum/skill/combat/rifles, 4, TRUE)
-

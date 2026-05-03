@@ -125,7 +125,7 @@ var/global/list/pridelist = list(
 		dat += "Detail Color: <font color='[activecolor_detail]'>&#10070;</font>"
 		dat += "<A href='?src=\ref[src];paint_detail=1'>Apply new color</A> | "
 		dat += "<A href='?src=\ref[src];clear_detail=1'>Remove paintjob</A><BR><BR>"
-			
+
 	if(inserted_item.altdetail_color)
 		dat += "<A href='?src=\ref[src];select_altdetail=1'>Select new tertiary color.</A><BR>"
 		dat += "Alt. Detail Color: <font color='[activecolor_altdetail]'>&#10070;</font>"
@@ -339,3 +339,257 @@ var/global/list/pridelist = list(
 	dye = null
 	update_icon()
 
+// TEMPERANCE DYE
+
+/obj/machinery/gear_painter_nocolorwheel
+	name = "Dye Station"
+	desc = "A station to give your apparel a fresh new color! Recommended to use with white items for best results."
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "dyeing"
+	density = TRUE
+	anchored = TRUE
+	var/atom/movable/inserted
+	var/activecolor = "#FFFFFF"
+	var/activecolor_detail = "#FFFFFF"
+	var/activecolor_altdetail = "#FFFFFF"
+	var/list/allowed_types = list(
+			/obj/item/clothing,
+			/obj/item/storage,
+			/obj/item/bedroll,
+			/obj/item/flowercrown
+			)
+	var/list/used_colors
+	var/list/extra_colors = list(
+		"Baby Puke" = "#b5b004",
+        "Black" = "#414143",
+        "Chalk White" = "#f4ecde",
+        "Chestnut" = "#613613",
+        "Cream" = "#fffdd0",
+        "Dark Grey" = "#505050",
+        "Dirt" = "#7c6d5c",
+        "Dunked in Water" = "#bbbbbb",
+        "Gold" = "#f9a602",
+        "Green" = "#428138",
+        "Light Grey" = "#999999",
+        "Mage Blue" = "#4756d8",
+        "Mage Green" = "#759259",
+        "Mage Grey" = "#6c6c6c",
+        "Mage Red" = "#b8252c",
+        "Mage Yellow" = "#c1b144",
+        "Maroon" = "#550000",
+        "Olive" = "#98bf64",
+        "Orange" = "#bd6606",
+        "Orchil" = "#66023C",
+        "Peasant Brown" = "#685542",
+        "Periwinkle Blue" = "#8f99fb",
+		"Red" = "#a32121",
+		"Red Ochre" = "#913831",
+        "Russet" = "#7f461b",
+        "Woad Blue" = "#597fb9",
+        "Yellow Ochre" = "#cb9d06",
+        "Yellow Weld" = "#f4c430",
+        "Yarrow" = "#f0cb76"
+		)
+
+/obj/machinery/gear_painter_nocolorwheel/Initialize()
+	..()
+	used_colors = colorlist + extra_colors
+
+/obj/machinery/gear_painter_nocolorwheel/Destroy()
+	if(inserted)
+		inserted.forceMove(drop_location())
+	return ..()
+
+/obj/machinery/gear_painter_nocolorwheel/attackby(obj/item/I, mob/living/user)
+	if(inserted)
+		to_chat(user, span_warning("Something is already inside!"))
+		return ..()
+	if(!is_type_in_list(I, allowed_types))
+		to_chat(user, span_warning("[I] cannot be dyed!"))
+		return ..()
+	if(!user.transferItemToLoc(I, src))
+		to_chat(user, span_warning("[I] is stuck to your hand!"))
+		return ..()
+
+	user.visible_message(span_notice("[user] inserts [I] into [src]'s receptable."))
+
+	inserted = I
+	interact(user)
+
+/obj/machinery/gear_painter_nocolorwheel/AllowDrop()
+	return FALSE
+
+/obj/machinery/gear_painter_nocolorwheel/attack_hand(mob/living/user)
+	interact(user)
+
+/obj/machinery/gear_painter_nocolorwheel/interact(mob/user)
+	if(!is_operational())
+		return ..()
+	user.set_machine(src)
+	var/datum/browser/menu = new(user, "colormate","Dye Station", 400, 400, src)
+	var/list/dat = list("<TITLE>Dye Bin</TITLE><BR>")
+	if(!inserted)
+		dat += "No item inserted."
+		menu.set_content("<html>[dat.Join("")]</html>")
+		menu.open()
+		return
+
+	var/obj/item/inserted_item = inserted
+
+	dat += "Item inserted: [inserted]<HR>"
+	dat += "<A href='?src=\ref[src];select=1'>Select new color.</A><BR>"
+	dat += "Color: <font color='[activecolor]'>&#10070;</font>"
+	dat += "<A href='?src=\ref[src];paint=1'>Apply new color</A> | "
+	dat += "<A href='?src=\ref[src];clear=1'>Remove paintjob</A><BR><BR>"
+
+	if(inserted_item.detail_color)
+		dat += "<A href='?src=\ref[src];select_detail=1'>Select new detail color.</A><BR>"
+		dat += "Detail Color: <font color='[activecolor_detail]'>&#10070;</font>"
+		dat += "<A href='?src=\ref[src];paint_detail=1'>Apply new color</A> | "
+		dat += "<A href='?src=\ref[src];clear_detail=1'>Remove paintjob</A><BR><BR>"
+
+	if(inserted_item.altdetail_color)
+		dat += "<A href='?src=\ref[src];select_altdetail=1'>Select new tertiary color.</A><BR>"
+		dat += "Alt. Detail Color: <font color='[activecolor_altdetail]'>&#10070;</font>"
+		dat += "<A href='?src=\ref[src];paint_altdetail=1'>Apply new color</A> | "
+		dat += "<A href='?src=\ref[src];clear_altdetail=1'>Remove paintjob</A><BR><BR>"
+
+	dat += "<A href='?src=\ref[src];eject=1'>Eject item.</A><BR><BR>"
+	menu.set_content("<html>[dat.Join("")]</html>")
+	menu.open()
+
+/obj/machinery/gear_painter_nocolorwheel/Topic(href, href_list) //No more color wheel. Sorry.
+	. = ..()
+	if(.)
+		return
+
+	add_fingerprint(usr)
+
+	if(href_list["close"])
+		usr << browse(null, "window=colormate")
+		return
+
+	if(href_list["select"])
+		var/choice
+		if(alert(usr, "Input Choice", "Primary Dye", "Color Preset", "Cancel") != "Cancel")
+			choice = input(usr, "Choose your dye:", "Dyes", null) as null|anything in used_colors
+			if(!choice)
+				return
+			activecolor = used_colors[choice]
+		else
+			activecolor = "#FFFFFF"
+		updateUsrDialog()
+
+	if(href_list["select_detail"])
+		var/choice
+		if(alert(usr, "Input Choice", "Secondary Dye", "Color Preset", "Cancel") != "Cancel")
+			choice = input(usr, "Choose your dye:", "Dyes", null) as anything in used_colors|null
+			if(!choice)
+				return
+			activecolor_detail = used_colors[choice]
+		else
+			activecolor_detail = "#FFFFFF"
+		updateUsrDialog()
+
+	if(href_list["select_altdetail"])
+		var/choice
+		if(alert(usr, "Input Choice", "Tertiary Dye", "Color Preset", "Cancel") != "Cancel")
+			choice = input(usr, "Choose your dye:", "Dyes", null) as anything in used_colors|null
+			if(!choice)
+				return
+			activecolor_altdetail = used_colors[choice]
+		else
+			activecolor_altdetail = "#FFFFFF"
+		updateUsrDialog()
+
+	if(href_list["paint"])
+		if(!inserted)
+			return
+		inserted.add_atom_colour(activecolor, FIXED_COLOUR_PRIORITY)
+		playsound(src, "sound/misc/print.ogg", 40, 1)
+		updateUsrDialog()
+
+	if(href_list["paint_detail"])
+		if(!inserted)
+			return
+		var/obj/item/inserted_item = inserted
+		inserted_item.detail_color = activecolor_detail
+		inserted_item.update_icon()
+		if(inserted_item in GLOB.lordcolor) //Prevent a latejoining duke from changing this color
+			GLOB.lordcolor -= inserted_item
+		playsound(src, "sound/misc/print.ogg", 40, 1)
+		updateUsrDialog()
+
+	if(href_list["paint_altdetail"])
+		if(!inserted)
+			return
+		var/obj/item/inserted_item = inserted
+		inserted_item.altdetail_color = activecolor_altdetail
+		inserted_item.update_icon()
+		if(inserted_item in GLOB.lordcolor)
+			GLOB.lordcolor -= inserted_item
+		playsound(src, "sound/misc/print.ogg", 40, 1)
+		updateUsrDialog()
+
+	if(href_list["clear"])
+		if(!inserted)
+			return
+		inserted.remove_atom_colour(FIXED_COLOUR_PRIORITY)
+		updateUsrDialog()
+
+	if(href_list["clear_detail"])
+		if(!inserted)
+			return
+		var/obj/item/inserted_item = inserted
+		inserted_item.detail_color = "#FFFFFF" //We don't initial() this in case it goes null
+		inserted_item.update_icon()
+		updateUsrDialog()
+
+	if(href_list["clear_altdetail"])
+		if(!inserted)
+			return
+		var/obj/item/inserted_item = inserted
+		inserted_item.altdetail_color = "#FFFFFF"
+		inserted_item.update_icon()
+		updateUsrDialog()
+
+	if(href_list["eject"])
+		if(!inserted)
+			return
+		inserted.forceMove(drop_location())
+		inserted = null
+		updateUsrDialog()
+
+/obj/machinery/gear_painter_nocolorwheel/risvon
+	name = "Risvonite Dye Station"
+	desc = "A dye station stocked with the dictates colors. Glory to the Divegat."
+
+var/list/risvon_colors = list(
+	"RISVONITE RED"="#732020", //Not gonna lie the default red works fine for Risvon, but here's a little darker one to prevent people from being too bright.
+   	"CONSCRIPTS LEATHER"="#7c6d5c", //Same as DIRT in the extra color list. Works shockingly well to match their tabard.
+	"AUTUMN FOREST"="#df8405",	//Same as global ORANGE
+	"FORGOTTEN SUN"="#ffcd43", //Same as global YELLOW
+	"ERROR: PRINTER FAILURE"="#962e5c",	//Same as global MAGENTA
+	"FERTILE SOIL"="#61462c", 	//Same as global BROWN
+	)
+
+/obj/machinery/gear_painter_nocolorwheel/risvon/Initialize()
+	..()
+	used_colors = risvon_colors
+
+/obj/machinery/gear_painter_nocolorwheel/persurdun
+	name = "Persurdunian Dye Station"
+	desc = "A dye station stocked with the empires colors. Praise be to Rab."
+
+var/list/persurdun_colors = list(
+	"PERSURDUNIAN BLUE"="#58617C", //Desaturated Blue
+	"ZEALOTS WOAD"="#252547", //Same as the blue on the war priests robes
+	"NOBLE RETINUE"="#8747b1", //Same as global PURPLE
+	"LEECHES CREED"="#173266", //Same as global BLUE
+	"FORGOTTEN SKY"="#249589", //Same as global TEAL
+	"SUMMER FOREST"="#264d26", //Same as global GREEN
+	)
+
+/obj/machinery/gear_painter_nocolorwheel/persurdun/Initialize()
+	..()
+	used_colors = persurdun_colors

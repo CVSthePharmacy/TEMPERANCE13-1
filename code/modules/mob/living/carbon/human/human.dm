@@ -296,7 +296,7 @@
 	for(var/obj/item/grabbing/grab in grabbedby) //Grabbed by the mouth
 		if(grab.sublimb_grabbed == BODY_ZONE_PRECISE_MOUTH)
 			return FALSE
-			
+
 	return TRUE
 
 
