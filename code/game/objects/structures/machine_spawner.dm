@@ -61,6 +61,8 @@
 			/obj/effect/spawner/lootdrop/machine/ammo,
 			/obj/effect/spawner/lootdrop/machine/leverrifle,
 			/obj/effect/spawner/lootdrop/machine/pistol,
+			/obj/effect/spawner/lootdrop/machine/stockedpistol,
+			/obj/effect/spawner/lootdrop/machine/coltpistol,
 			/obj/effect/spawner/lootdrop/machine/explosives)
 	else 
 		new_type = pick(
@@ -136,6 +138,16 @@
 	loot = list(
 		/obj/item/gun/ballistic/rifle/repeater/jackal = 2,
 		/obj/item/ammo_box/magazine/jackal = 4
+	)
+/obj/effect/spawner/lootdrop/machine/stockedpistol
+	loot = list(
+		/obj/item/gun/ballistic/rifle/repeater/artyluger
+		/obj/item/ammo_box/magazine/luger = 4
+	)
+/obj/effect/spawner/lootdrop/machine/coltpistol
+	loot = list(
+		/obj/item/gun/ballistic/rifle/repeater/fury = 4
+		/obj/item/ammo_box/magazine/fury = 4
 	)
 /obj/effect/spawner/lootdrop/machine/explosives
 	loot = list(
