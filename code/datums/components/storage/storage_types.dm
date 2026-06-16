@@ -259,6 +259,22 @@
 	. = ..()
 	set_holdable(/obj/item/ammo_box/magazine/hmg)
 
+/datum/component/storage/concrete/grid/sappersatchel
+	screen_max_rows = 4
+	screen_max_columns = 6
+	insert_preposition = "in" //this allows them to have 12 in their pouch thing
+
+/datum/component/storage/concrete/grid/strapbag/New(datum/P, ...)
+	. = ..()
+	set_holdable(list(
+		/obj/item/grenade/gas/smoke,
+		/obj/item/grenade/gas/poison,
+		/obj/item/grenade/frag,
+		/obj/item/bomb/molotov,
+		/obj/item/bomb/dynamite,
+		/obj/item/bomb/satchel,
+	))
+
 /datum/component/storage/concrete/grid/panbag
 	screen_max_rows = 4
 	screen_max_columns = 8

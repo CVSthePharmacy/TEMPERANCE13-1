@@ -1403,6 +1403,8 @@
 	},
 /obj/effect/landmark/start/soldato,
 /obj/effect/landmark/start/soldatolate,
+/obj/effect/landmark/start/ministo,
+/obj/effect/landmark/start/ministolate,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/risvonbase)
 "mu" = (

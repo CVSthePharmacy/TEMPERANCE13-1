@@ -399,6 +399,13 @@
 	createditem_num = 2
 	craftdiff = 1
 
+/datum/anvil_recipe/weapons/iron/maul
+	name = "Maul (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/rogueweapon/mace/maul
+	craftdiff = 4
+
 /// STEEL WEAPONS
 
 /datum/anvil_recipe/weapons/steel/dagger

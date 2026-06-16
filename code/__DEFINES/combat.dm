@@ -356,5 +356,5 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 
 //Weapon values
 #define BLUNT_DEFAULT_PENFACTOR		-100
-
+#define MAUL_DEFAULT_PENFACTOR		-200//So they can nuke armour without issue. A pseudo-rend setup.
 #define UNARMED_DAMAGE_DEFAULT		12

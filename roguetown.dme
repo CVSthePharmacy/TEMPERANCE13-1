@@ -1661,6 +1661,7 @@
 #include "code\modules\jobs\job_types\roguetown\risvonian\curacisto.dm"
 #include "code\modules\jobs\job_types\roguetown\risvonian\flamsoldato.dm"
 #include "code\modules\jobs\job_types\roguetown\risvonian\kaspafisto.dm"
+#include "code\modules\jobs\job_types\roguetown\risvonian\ministo.dm"
 #include "code\modules\jobs\job_types\roguetown\risvonian\mulo.dm"
 #include "code\modules\jobs\job_types\roguetown\risvonian\oficiro.dm"
 #include "code\modules\jobs\job_types\roguetown\risvonian\pafanto.dm"

@@ -203,6 +203,7 @@ GLOBAL_LIST_INIT(risvon_positions, list(
 	"Kaspafisto",
 	"Veterano",
 	"Soldato",
+	"Ministo",
 	"Magiisto",
 	"Bastiono",
 	"Pafanto",

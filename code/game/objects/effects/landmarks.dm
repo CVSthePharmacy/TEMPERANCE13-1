@@ -614,6 +614,16 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	jobspawn_override = list("Soldato")
 	delete_after_roundstart = FALSE
 
+/obj/effect/landmark/start/ministo
+	name = "ministo"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/ministolate
+	name = "ministo"
+	icon_state = "arrow"
+	jobspawn_override = list("ministo")
+	delete_after_roundstart = FALSE
+
 /obj/effect/landmark/start/pafanto
 	name = "pafanto"
 	icon_state = "arrow"

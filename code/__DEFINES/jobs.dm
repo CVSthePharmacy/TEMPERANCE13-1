@@ -232,14 +232,15 @@
 #define KASPAFISTO (1<<2) //actual sniper - amr & shit. grandknight equiv
 #define VETERANO (1<<3) //veteran w/ a shotgun & grenades instead of a pistol & net
 #define SOLDATO	(1<<4) //standard soldier - high speed, low armor, net + pistol
-#define TUORO (1<<5)
-#define PAFANTO (1<<6) //heavy weapon technician - melee weapon and machine gun
-#define MULO (1<<7) // heavy weapon ammo bearer - stripped down soldato gear and ammo storage
-#define SERVISTO (1<<8) //support role - can probably shit meds out the wazoo 
-#define CURACISTO (1<<9)
-#define CAMPFOLLOWER (1<<10)
-#define CONSULO (1<<11)
-#define FLAMSOLDATO (1<<12)
+#define MINISTO (1<<5) //Sapper, big maul and a buncha bombs please
+#define TUORO (1<<6)
+#define PAFANTO (1<<7) //heavy weapon technician - melee weapon and machine gun
+#define MULO (1<<8) // heavy weapon ammo bearer - stripped down soldato gear and ammo storage
+#define SERVISTO (1<<9) //support role - can probably shit meds out the wazoo 
+#define CURACISTO (1<<10)
+#define CAMPFOLLOWER (1<<11)
+#define CONSULO (1<<12)
+#define FLAMSOLDATO (1<<13)
 
 #define KINGSROW (1<<14)
 
@@ -294,14 +295,15 @@
 #define JDO_KASPAFISTO 2.2
 #define JDO_VETERANO 2.3
 #define JDO_SOLDATO 2.4
-#define JDO_PAFANTO 2.5
-#define JDO_MULO 2.6
-#define JDO_TUORO 2.7
-#define JDO_SERVISTO 2.8
-#define JDO_CURACISTO 2.9
-#define JDO_CAMPFOLLOWER 2.10
-#define JDO_CONSULO 2.11
-#define JDO_FLAMSOLDATO 2.12
+#define JDO_MINISTO 2.5
+#define JDO_PAFANTO 2.6
+#define JDO_MULO 2.7
+#define JDO_TUORO 2.8
+#define JDO_SERVISTO 2.9
+#define JDO_CURACISTO 2.10
+#define JDO_CAMPFOLLOWER 2.11
+#define JDO_CONSULO 2.12
+#define JDO_FLAMSOLDATO 2.13
 
 // KINGSROW
 #define JDO_HIERARCH 3

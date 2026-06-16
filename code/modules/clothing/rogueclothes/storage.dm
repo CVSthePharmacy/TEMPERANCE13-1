@@ -511,6 +511,29 @@
 		/obj/item/ammo_box/clip/pistol,
 	)
 
+/obj/item/storage/belt/rogue/pouch/sappersatchel
+	name = "sapper's satchel"
+	desc = "A satchel meant to hold explosives and the like. It's got a lot of room, but it only takes one bullet to ruin the whole thing."
+	icon_state = "strapbag"
+	item_state = "strapbag"
+	component_type = /datum/component/storage/concrete/grid/sappersatchel
+
+/obj/item/storage/belt/rogue/pouch/sappersatchel/full //only ministos should spawn with this. they get a variety of explosives, 3 big bombs, 3 firebombs, 3 smokes, and 3 small bombs.
+	populate_contents = list(
+		/obj/item/bomb/satchel,
+		/obj/item/bomb/satchel,
+		/obj/item/bomb/satchel,
+		/obj/item/bomb/molotov,
+		/obj/item/bomb/molotov,
+		/obj/item/bomb/molotov,
+		/obj/item/bomb/dynamite,
+		/obj/item/bomb/dynamite,
+		/obj/item/bomb/dynamite,
+		/obj/item/grenade/gas/smoke,
+		/obj/item/grenade/gas/smoke,
+		/obj/item/grenade/gas/smoke,
+	)
+
 /obj/item/storage/belt/rogue/pouch/panbag
 	name = "ammo pan strapbag"
 	desc = "A strap on bag meant to hold light machine gun ammo pans. It's a bit of a heavy item, but it does its job well."
