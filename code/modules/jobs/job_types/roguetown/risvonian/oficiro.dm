@@ -37,9 +37,9 @@
 
 /datum/outfit/job/roguetown/oficiro/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
-	shoes = /obj/item/clothing/shoes/roguetown/boots
+	shoes = /obj/item/clothing/shoes/roguetown/armor/rishighboots
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/ziggurate/pauldrons
-	cloak = /obj/item/clothing/cloak/templar/malumite
+	cloak = /obj/item/clothing/cloak/risofficer
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	head = /obj/item/clothing/head/roguetown/helmet/kettle/iron/oficiro
 	mask = /obj/item/clothing/mask/rogue/gasmask/risvonmask
@@ -49,10 +49,10 @@
 	wrists = /obj/item/scomstone/rislead
 	gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 	id = /obj/item/roguekey/risvon
-	backl = /obj/item/gun/ballistic/rifle/repeater/rattlesnake
+	backl = /obj/item/gun/ballistic/rifle/repeater/leveraction
 	backr = /obj/item/storage/backpack/rogue/backpack/risvon
 	backpack_contents = list(
-		/obj/item/ammo_box/handfuls/rattlesnake = 4,
+		/obj/item/ammo_box/handfuls/leveraction = 6,
 		/obj/item/storage/belt/rogue/pouch/coins/mid,
 		/obj/item/grenade/gas/smoke = 2,
 		/obj/item/ammo_box/magazine/luger = 3,

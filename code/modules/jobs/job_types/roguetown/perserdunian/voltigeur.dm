@@ -40,14 +40,14 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	armor = /obj/item/clothing/suit/roguetown/armor/brigandine
-	cloak = /obj/item/clothing/cloak/perserduntrenchcoat
+	cloak = /obj/item/clothing/cloak/perserduntrenchcoat/voltigeur
 	pants = /obj/item/clothing/under/roguetown/trou/artipants
 	head = /obj/item/clothing/head/roguetown/helmet/sallet/visored/gilded
-	mask = /obj/item/clothing/mask/rogue/gasmask/perserdunmask
+	mask = /obj/item/clothing/mask/rogue/gasmask/perserdunmask/cloth
 	belt = /obj/item/storage/belt/rogue/leather/black/soldier
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	beltr = /obj/item/storage/belt/rogue/pouch/ammobag/rifle
-	backl = /obj/item/gun/ballistic/rifle/repeater/lebel
+	beltr = /obj/item/storage/belt/rogue/pouch/ammobag/shotgun
+	backl = /obj/item/gun/ballistic/shotgun/levershotgun
 	wrists = /obj/item/scomstone/garrison
 	gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 	backr = /obj/item/storage/backpack/rogue/backpack/perserdun
@@ -71,8 +71,8 @@
 	H.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/rifles, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/shotguns, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/rifles, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shotguns, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)

@@ -38,14 +38,14 @@
 /datum/outfit/job/roguetown/curacisto/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 	shoes = /obj/item/clothing/shoes/roguetown/boots
-	cloak = /obj/item/clothing/cloak/templar/malumite
+	cloak = /obj/item/clothing/cloak/rismedtabard
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	belt = /obj/item/storage/belt/rogue/leather/black/soldier
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/storage/belt/rogue/surgery_bag/full
 	wrists = /obj/item/scomstone
 	mask = /obj/item/clothing/mask/rogue/gasmask/sgmask/curacisto
-	head = /obj/item/clothing/head/roguetown/helmet/kettle/iron
+	head = /obj/item/clothing/head/roguetown/helmet/kettle/iron/soldato
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 	id = /obj/item/roguekey/risvon

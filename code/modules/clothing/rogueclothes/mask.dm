@@ -338,18 +338,13 @@
 	item_state = "blindfold"
 	body_parts_covered = EYES
 	sewrepair = TRUE
-	tint = 3
+	tint = TINT_BLIND
 	mob_overlay_icon = 'icons/mob/clothing/eyes.dmi'
 	icon = 'icons/obj/clothing/glasses.dmi'
 
-/obj/item/clothing/mask/rogue/blindfold/equipped(mob/living/carbon/human/user, slot)
-	. = ..()
-	if(slot == ITEM_SLOT_MASK)
-		user.become_blind("blindfold_[REF(src)]")
-
-/obj/item/clothing/mask/rogue/blindfold/dropped(mob/living/carbon/human/user)
-	..()
-	user.cure_blind("blindfold_[REF(src)]")
+/obj/item/clothing/mask/rogue/blindfold/fake
+	desc = "A strip of cloth tied around the eyes. It's too transparent to block vision."
+	tint = 0
 
 /obj/item/clothing/mask/rogue/duelmask
 	name = "duelist's mask"
@@ -408,11 +403,24 @@
 	name = "old gas mask"
 	desc = "A locally-produced gas mask. Comes with a tube, and box."
 	icon_state = "EB_gasmask"
+	flags_inv = HIDEFACE|HIDESNOUT|HIDEFACIALHAIR
 
 /obj/item/clothing/mask/rogue/gasmask/perserdunmask
 	name = "tubed gas mask"
 	desc = "The Perserdunian Standard. Still dogshit."
 	icon_state = "fullgas"
+
+/obj/item/clothing/mask/rogue/gasmask/perserdunmask/strap
+	name = "strapped gas mask"
+	desc = "A variant of the standard Perserdunian gas mask, still pretty shit."
+	icon_state = "strapmask"
+	flags_inv = HIDEFACE|HIDESNOUT|HIDEFACIALHAIR
+
+/obj/item/clothing/mask/rogue/gasmask/perserdunmask/cloth
+	name = "cloth half mask"
+	desc = "A cloth mask with a small rebreather behind it, It'll keep you safe enough."
+	icon_state = "halfmask"
+	flags_inv = HIDEFACE|HIDESNOUT|HIDEFACIALHAIR
 
 /obj/item/clothing/mask/rogue/gasmask/sgmask
 	name = "safety mask"
