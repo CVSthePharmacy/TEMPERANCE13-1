@@ -511,7 +511,7 @@
 	force_wielded = 40// A beast of a weapon, good intents but heavy stamina loss and strength requirement.
 	possible_item_intents = list(/datum/intent/mace/strike)
 	gripped_intents = list(/datum/intent/maul, /datum/intent/maul/crush, /datum/intent/effect/daze, /datum/intent/effect/hobble)
-	name = "CLOSE COLLATERAL"
+	name = "Sledgehammer"
 	desc = "Pumped out by a WAR MACHINE, probably wielded by one too. Who would need something this large? It looks like it was made for tearing down walls, rather than men."
 	icon_state = "sledge"
 	icon = 'icons/roguetown/weapons/64.dmi'
@@ -551,7 +551,7 @@
 	swingdelay = 0
 	damfactor = 0.8
 	penfactor = MAUL_DEFAULT_PENFACTOR
-	clickcd = 15
+	clickcd = 14
 	item_d_type = "blunt"
 	intent_effect = /datum/status_effect/debuff/hobbled
 	target_parts = list(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)//Intentionally leaving out feet. If you know, you know.
@@ -565,7 +565,7 @@
 	swingdelay = 0
 	intent_intdamage_factor = 1.4//+.15 from normal mace strike. This is the weapon's purpose.
 	penfactor = MAUL_DEFAULT_PENFACTOR//You're getting FULL armour damage with this.
-	clickcd = 12
+	clickcd = 8
 	icon_state = "instrike"
 	item_d_type = "blunt"
 
@@ -574,7 +574,7 @@
 	blade_class = BCLASS_SMASH
 	attack_verb = list("crushes")
 //	chargetime = 2 SECONDS//Leftover from knockback. Return when that's good.
-	swingdelay = 8//+2 from mace smash. Walk away from it.
+	swingdelay = 13//+5 from maul strike. Walk away from it.
 	damfactor = 1.8//Identical to mace smash.
 	intent_intdamage_factor = 1.6//Yeah, that guy? Nuke him.
 	icon_state = "incrush"
